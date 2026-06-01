@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>404 — Page Not Found</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Barlow+Condensed:wght@800;900&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #080808;
+    color: #f0f0f0;
+    font-family: 'Space Mono', monospace;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 24px;
+    overflow: hidden;
+  }
+  .num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(120px, 25vw, 280px);
+    font-weight: 900;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.15);
+    letter-spacing: -0.02em;
+    user-select: none;
+  }
+  .label {
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 16px;
+  }
+  .divider {
+    width: 40px; height: 1px;
+    background: rgba(255,255,255,0.1);
+    margin: 32px auto;
+  }
+  .msg {
+    font-size: 12px;
+    color: #666;
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-top: 40px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #f0f0f0;
+    border: 1px solid #333;
+    padding: 14px 28px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .btn:hover { background: rgba(255,255,255,0.05); border-color: #555; }
+</style>
+</head>
+<body>
+  <div class="num">404</div>
+  <div class="label">Page Not Found</div>
+  <div class="divider"></div>
+  <p class="msg">The page you're looking for doesn't exist<br/>or has been moved.</p>
+  <a href="index.html" class="btn">← Back to Home</a>
+</body>
+</html>
