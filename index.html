@@ -1202,6 +1202,15 @@ function closeMenu() {
   document.getElementById('hamburger').classList.remove('open');
 }
 
+// ── CLOSE MENU ON OUTSIDE TAP ──
+document.addEventListener('click', function(e) {
+  const menu = document.getElementById('mobileMenu');
+  const ham = document.getElementById('hamburger');
+  if (menu.classList.contains('open') && !menu.contains(e.target) && !ham.contains(e.target)) {
+    closeMenu();
+  }
+});
+
 // ── CURSOR ──
 const dot = document.getElementById('dot');
 const ring = document.getElementById('ring');
