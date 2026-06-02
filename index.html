@@ -313,48 +313,122 @@
   }
   .prof-fill.animated { width: var(--w); }
 
-  /* ── CONTACT FORM ── */
-  .contact-form {
-    max-width: 560px; margin: 48px auto 0;
-    display: flex; flex-direction: column; gap: 0;
+  /* ── CONTACT SECTION LAYOUT ── */
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    grid-template-rows: 1fr;
+    align-items: stretch;
+    gap: 0;
+    max-width: 860px;
+    margin: 56px auto 0;
     border: 1px solid var(--line);
   }
-  .form-row {
-    display: grid; grid-template-columns: 1fr 1fr;
+  .contact-info-panel {
+    padding: 40px 36px;
+    border-right: 1px solid var(--line);
+    display: flex; flex-direction: column;
+    background: rgba(255,255,255,0.015);
+    overflow: hidden;
   }
-  .form-field {
+  .contact-info-heading {
+    font-family: var(--mono); font-size: 9px;
+    color: var(--mgray); letter-spacing: 0.18em;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .contact-info-value {
+    color: var(--white); font-size: 13px; line-height: 1.8;
+    text-decoration: none;
+    display: block;
+  }
+  .contact-info-value:hover { color: var(--accent); }
+  .contact-info-block { display: flex; flex-direction: column; gap: 2px; margin-bottom: 28px; }
+  .contact-social-row {
+    display: flex; gap: 0; flex-wrap: wrap;
+    border-top: 1px solid var(--line);
+    border-bottom: none;
+    margin-top: auto;
+    margin-left: -36px; margin-right: -36px; margin-bottom: -40px;
+  }
+  .contact-social-row a {
+    font-family: var(--mono); font-size: 9px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--mgray); text-decoration: none;
+    padding: 14px 16px;
+    border-right: 1px solid var(--line);
+    transition: color 0.2s, background 0.2s;
+    flex: 1; text-align: center;
+  }
+  .contact-social-row a:last-child { border-right: none; }
+  .contact-social-row a:hover { color: var(--white); background: rgba(255,255,255,0.05); }
+
+  /* ── CONTACT FORM ── */
+  .contact-form {
+    display: flex; flex-direction: column; align-self: stretch;
+  }
+  .contact-form .form-row {
+    display: grid; grid-template-columns: 1fr 1fr;
+    flex: 0 0 auto;
+  }
+  .contact-form .form-field {
     display: flex; flex-direction: column;
     border-bottom: 1px solid var(--line);
   }
-  .form-field.full { grid-column: 1 / -1; }
-  .form-field label {
+  .contact-form .form-field label {
+    background: var(--bg2);
+  }
+  .contact-form .form-field input:focus {
+    background: #1a1a1a;
+    outline: none;
+  }
+  .contact-form .form-field.full { grid-column: 1 / -1; flex: 1; }
+  .contact-form .form-field.full textarea { flex: 1; height: 100%; min-height: 160px; }
+  .contact-form .form-field label {
     font-family: var(--mono); font-size: 9px;
     color: var(--mgray); letter-spacing: 0.16em;
     text-transform: uppercase;
-    padding: 14px 20px 0;
+    padding: 14px 24px 12px;
   }
-  .form-field input,
-  .form-field textarea {
-    background: transparent;
+  .contact-form .form-field input,
+  .contact-form .form-field textarea {
+    background: #141414;
     border: none; outline: none;
+    border-top: 1px solid var(--line);
     color: var(--white);
     font-family: var(--body); font-size: 13px;
-    padding: 8px 20px 14px;
-    resize: none;
+    padding: 8px 24px 16px;
+    resize: none; width: 100%;
+    box-sizing: border-box;
   }
-  .form-field input::placeholder,
-  .form-field textarea::placeholder { color: var(--mgray); }
-  .form-field:first-child { border-right: 1px solid var(--line); }
+  .contact-form .form-field input::placeholder,
+  .contact-form .form-field textarea::placeholder { color: var(--mgray); }
+  .contact-form .form-row .form-field:first-child { border-right: 1px solid var(--line); }
+  .contact-form .form-field input:focus { background: rgba(255,255,255,0.04); }
+  .contact-form .full-area {
+    flex: 1; display: flex; flex-direction: column;
+    border-bottom: 1px solid var(--line);
+    background: var(--bg2);
+  }
+  .contact-form .full-area textarea {
+    flex: 1; min-height: 160px;
+    background: #141414; border: none; outline: none;
+    border-top: 1px solid var(--line);
+    color: var(--white); font-family: var(--body); font-size: 13px;
+    padding: 16px 24px; resize: none; width: 100%; box-sizing: border-box;
+    transition: background 0.2s;
+  }
+  .contact-form .full-area textarea::placeholder { color: var(--mgray); }
+  .contact-form .full-area textarea:focus { background: #1a1a1a; }
   .form-submit {
     font-family: var(--mono); font-size: 10px;
     letter-spacing: 0.14em; text-transform: uppercase;
-    padding: 16px 28px;
-    border: none; background: var(--white); color: var(--bg);
+    padding: 14px 28px;
+    border: none; background: #2a2a2a; color: var(--white);
     cursor: pointer;
-    transition: background 0.2s;
-    width: 100%;
+    transition: background 0.2s, color 0.2s;
+    width: 100%; margin-top: auto;
   }
-  .form-submit:hover { background: var(--accent); }
+  .form-submit:hover { background: #3a3a3a; color: var(--white); }
   .form-status {
     font-family: var(--mono); font-size: 10px;
     color: var(--gray); letter-spacing: 0.1em;
@@ -673,6 +747,13 @@
     .contact-links { flex-direction: column; align-items: stretch; }
     .contact-links .btn-sq { justify-content: center; }
     .contact-links .btn-sq + .btn-sq { border-left: 1px solid var(--dgray); border-top: none; }
+    .contact-inner { grid-template-columns: 1fr; margin: 40px auto 0; min-height: unset; }
+    .contact-info-panel { border-right: none; border-bottom: 1px solid var(--line); padding: 32px 24px; }
+    .contact-social-row { margin-left: -24px; margin-right: -24px; }
+    .contact-form .full-area { min-height: 140px; }
+    .contact-form .form-field label { padding: 14px 18px 12px; }
+    .contact-form .form-field input { padding: 8px 18px 14px; }
+    .contact-form .full-area textarea { padding: 14px 18px; }
 
     /* FOOTER */
     footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
@@ -1020,36 +1101,57 @@
   <p style="color:var(--gray); font-size:14px; max-width:400px; margin:0 auto; line-height:1.7;" class="reveal">
     Open to new opportunities, freelance projects, and collaborations. Let's build something great together.
   </p>
-  <div class="contact-links reveal">
-    <a href="mailto:info.hasibahmed@gmail.com" class="btn-sq filled">EMAIL ME</a>
-    <a href="tel:+8801870451231" class="btn-sq">CALL</a>
-    <a href="https://hasib.online" target="_blank" class="btn-sq">WEBSITE ↗</a>
-    <a href="https://linkedin.com/in/hasib2k" target="_blank" class="btn-sq">LINKEDIN ↗</a>
-    <a href="https://github.com/hasib2k" target="_blank" class="btn-sq">GITHUB ↗</a>
+
+  <div class="contact-inner reveal">
+    <!-- Left: Info Panel -->
+    <div class="contact-info-panel">
+      <div class="contact-info-block">
+        <div class="contact-info-heading">Email</div>
+        <a href="mailto:info.hasibahmed@gmail.com" class="contact-info-value">info.hasibahmed@gmail.com</a>
+      </div>
+      <div class="contact-divider"></div>
+      <div class="contact-info-block">
+        <div class="contact-info-heading">Phone</div>
+        <a href="tel:+8801870451231" class="contact-info-value">+880 187 045 1231</a>
+        <a href="tel:+8801706776711" class="contact-info-value">+880 170 677 6711</a>
+      </div>
+      <div class="contact-divider"></div>
+      <div class="contact-info-block">
+        <div class="contact-info-heading">Location</div>
+        <span class="contact-info-value" style="color:var(--gray);">Dhaka, Bangladesh</span>
+      </div>
+      <div class="contact-divider"></div>
+      <div class="contact-info-block">
+        <div class="contact-info-heading">Website</div>
+        <a href="https://hasib.online" target="_blank" class="contact-info-value">hasib.online ↗</a>
+      </div>
+      <div class="contact-social-row">
+        <a href="https://linkedin.com/in/hasib2k" target="_blank">LINKEDIN ↗</a>
+        <a href="https://github.com/hasib2k" target="_blank">GITHUB ↗</a>
+        <a href="mailto:info.hasibahmed@gmail.com">EMAIL</a>
+      </div>
+    </div>
+
+    <!-- Right: Form -->
+    <form class="contact-form" id="contactForm">
+      <div class="form-row">
+        <div class="form-field">
+          <label>Name</label>
+          <input type="text" placeholder="Your name" required/>
+        </div>
+        <div class="form-field">
+          <label>Email</label>
+          <input type="email" placeholder="your@email.com" required/>
+        </div>
+      </div>
+      <div class="full-area">
+        <label style="font-family:var(--mono); font-size:9px; color:var(--mgray); letter-spacing:0.16em; text-transform:uppercase; padding:14px 24px 12px; color:var(--mgray); display:block;">Message</label>
+        <textarea placeholder="Tell me about your project..." required></textarea>
+      </div>
+      <button type="submit" class="form-submit">SEND MESSAGE →</button>
+      <div class="form-status" id="formStatus">Message sent successfully!</div>
+    </form>
   </div>
-
-  <form class="contact-form reveal" id="contactForm">
-    <div class="form-row">
-      <div class="form-field">
-        <label>Name</label>
-        <input type="text" placeholder="Your name" required/>
-      </div>
-      <div class="form-field">
-        <label>Email</label>
-        <input type="email" placeholder="your@email.com" required/>
-      </div>
-    </div>
-    <div class="form-field full">
-      <label>Message</label>
-      <textarea rows="5" placeholder="Tell me about your project..." required></textarea>
-    </div>
-    <button type="submit" class="form-submit">SEND MESSAGE →</button>
-    <div class="form-status" id="formStatus">Message sent successfully!</div>
-  </form>
-
-  <p style="font-family:var(--mono); font-size:10px; color:var(--mgray); margin-top:48px; letter-spacing:0.1em;">
-    +880 187 045 1231 · +880 170 677 6711 · Dhaka, Bangladesh
-  </p>
 </section>
 
 <!-- FOOTER -->
