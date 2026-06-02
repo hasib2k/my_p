@@ -325,11 +325,10 @@
     border: 1px solid var(--line);
   }
   .contact-info-panel {
-    padding: 40px 36px;
+    padding: 40px 0 0 0;
     border-right: 1px solid var(--line);
     display: flex; flex-direction: column;
     background: rgba(255,255,255,0.015);
-    overflow: hidden;
   }
   .contact-info-heading {
     font-family: var(--mono); font-size: 9px;
@@ -342,13 +341,12 @@
     display: block;
   }
   .contact-info-value:hover { color: var(--accent); }
-  .contact-info-block { display: flex; flex-direction: column; gap: 2px; margin-bottom: 28px; }
+  .contact-info-block { display: flex; flex-direction: column; gap: 2px; margin-bottom: 28px; padding: 0 36px; }
+  .contact-divider { height: 1px; background: var(--line); margin: 4px 36px; }
   .contact-social-row {
     display: flex; gap: 0; flex-wrap: wrap;
     border-top: 1px solid var(--line);
-    border-bottom: none;
     margin-top: auto;
-    margin-left: -36px; margin-right: -36px; margin-bottom: -40px;
   }
   .contact-social-row a {
     font-family: var(--mono); font-size: 9px;
@@ -449,21 +447,20 @@
 
   /* ── EXPERIENCE ── */
   #experience .exp-block {
-    display: grid; grid-template-columns: 260px 1fr;
+    display: grid; grid-template-columns: 280px 1fr;
     gap: 0; border: 1px solid var(--line);
     margin-bottom: 1px;
   }
   .exp-meta {
-    padding: 40px 32px;
+    padding: 40px 32px 0;
     border-right: 1px solid var(--line);
     display: flex; flex-direction: column;
-    justify-content: space-between;
     background: var(--bg2);
     position: sticky; top: 72px; align-self: start;
+    overflow: hidden;
   }
-  .exp-meta-top { }
   .exp-company {
-    font-family: var(--display); font-size: 22px;
+    font-family: var(--display); font-size: 24px;
     font-weight: 800; color: var(--white);
     text-transform: uppercase; letter-spacing: 0.04em;
     line-height: 1.1;
@@ -471,13 +468,13 @@
   .exp-role {
     font-family: var(--mono); font-size: 9px;
     color: var(--accent); text-transform: uppercase;
-    letter-spacing: 0.16em; margin-top: 10px;
+    letter-spacing: 0.16em; margin-top: 12px;
     border: 1px solid var(--dgray);
-    display: inline-block; padding: 4px 8px;
+    display: inline-block; padding: 5px 10px;
   }
   .exp-period {
     font-family: var(--mono); font-size: 10px;
-    color: var(--gray); margin-top: 32px;
+    color: var(--gray); margin-top: 28px;
     letter-spacing: 0.08em;
     display: flex; align-items: center; gap: 8px;
   }
@@ -487,25 +484,42 @@
     flex-shrink: 0;
     box-shadow: 0 0 8px rgba(255,255,255,0.5);
   }
+  .exp-meta-tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-top: 28px;
+  }
+  .exp-meta-tag {
+    font-family: var(--mono); font-size: 8px;
+    color: var(--mgray); letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--line); padding: 4px 8px;
+  }
+  .exp-meta-bottom {
+    border-top: 1px solid var(--line);
+    margin-top: 32px; margin-left: -32px; margin-right: -32px;
+    padding: 14px 32px;
+    font-family: var(--mono); font-size: 9px;
+    color: var(--mgray); letter-spacing: 0.1em;
+  }
   .exp-bullets { list-style: none; }
   .exp-bullets li {
-    font-size: 13.5px; line-height: 1.7;
-    color: rgba(240,240,240,0.65);
-    padding: 18px 36px;
+    font-size: 13px; line-height: 1.75;
+    color: rgba(240,240,240,0.6);
+    padding: 20px 36px;
     border-bottom: 1px solid var(--line);
-    display: flex; gap: 20px;
+    display: flex; gap: 20px; align-items: flex-start;
     transition: background 0.2s, color 0.2s;
   }
   .exp-bullets li:last-child { border-bottom: none; }
   .exp-bullets li:hover {
-    background: rgba(255,255,255,0.025);
+    background: rgba(255,255,255,0.02);
     color: rgba(240,240,240,0.9);
   }
   .exp-bullet-num {
     font-family: var(--mono); font-size: 9px;
-    color: var(--mgray); flex-shrink: 0;
-    margin-top: 4px; letter-spacing: 0.05em;
-    min-width: 20px;
+    color: var(--dgray); flex-shrink: 0;
+    margin-top: 3px; letter-spacing: 0.05em;
+    min-width: 18px;
   }
   .exp-bullets li strong { color: var(--white); font-weight: 600; }
 
@@ -725,8 +739,10 @@
 
     /* EXPERIENCE */
     #experience .exp-block { grid-template-columns: 1fr; }
-    .exp-meta { border-right: none; border-bottom: 1px solid var(--line); position: static; padding: 28px 20px; }
+    .exp-meta { border-right: none; border-bottom: 1px solid var(--line); position: static; padding: 28px 20px 0; }
+    .exp-meta-bottom { margin-left: -20px; margin-right: -20px; padding: 14px 20px; }
     .exp-period { margin-top: 20px; }
+    .exp-meta-tags { margin-top: 20px; }
     .exp-bullets li { padding: 16px 20px; font-size: 13px; gap: 14px; }
     .exp-bullet-num { min-width: 16px; }
 
@@ -748,7 +764,10 @@
     .contact-links .btn-sq { justify-content: center; }
     .contact-links .btn-sq + .btn-sq { border-left: 1px solid var(--dgray); border-top: none; }
     .contact-inner { grid-template-columns: 1fr; margin: 40px auto 0; min-height: unset; }
-    .contact-info-panel { border-right: none; border-bottom: 1px solid var(--line); padding: 32px 24px; }
+    .contact-info-panel { border-right: none; border-bottom: 1px solid var(--line); padding: 32px 0 0 0; }
+    .contact-info-block { padding: 0 24px; }
+    .contact-divider { margin: 4px 24px; }
+    .contact-social-row { margin-top: 24px; }
     .contact-social-row { margin-left: -24px; margin-right: -24px; }
     .contact-form .full-area { min-height: 140px; }
     .contact-form .form-field label { padding: 14px 18px 12px; }
@@ -869,11 +888,18 @@
   <h2 class="sec-title reveal">WHERE I'VE WORKED.</h2>
   <div class="exp-block reveal">
     <div class="exp-meta">
-      <div class="exp-meta-top">
-        <div class="exp-company">Parallaxlogic Infotech</div>
-        <div class="exp-role">SQA Engineer</div>
-      </div>
+      <div class="exp-company">Parallaxlogic Infotech</div>
+      <div class="exp-role">SQA Engineer</div>
       <div class="exp-period">2024 – PRESENT</div>
+      <div class="exp-meta-tags">
+        <span class="exp-meta-tag">Playwright</span>
+        <span class="exp-meta-tag">Postman</span>
+        <span class="exp-meta-tag">API Testing</span>
+        <span class="exp-meta-tag">Agile</span>
+        <span class="exp-meta-tag">Regression</span>
+        <span class="exp-meta-tag">UAT</span>
+      </div>
+      <div class="exp-meta-bottom">7 contributions</div>
     </div>
     <ul class="exp-bullets">
       <li><span class="exp-bullet-num">01</span><span>Led end-to-end QA delivery across <strong>9+ projects</strong> spanning mobile (Android/iOS), government portals, fintech, and e-commerce — consistently on schedule within Agile sprints.</span></li>
